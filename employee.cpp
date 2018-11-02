@@ -34,16 +34,60 @@ Employee::Employee(std::string surname, int salary, int recruitment):Surname(sur
     Time::SetDateSecs(recruitment);
 
 }
+
 void Employee::Print_info(){
-    std::cout << "\nNew person";
-    std:: cout << std:: endl<< Name <<std::endl<< Surname <<std::endl<< Specialization<<std::endl << "Salary: " << Salary<<std::endl;\
+
+    /* Function prints all private fields */
+
+    std:: cout << std:: endl<< Name << "  "<< Surname <<"  "<< Specialization<<"  " << "Salary:" << Salary<< "  ";
     std::cout << "ID: " << employee_count << std::endl;
     Time::GetDateSecs();
-    std::cout << std::endl;
+    std::cout <<std::endl << "__________________";
 } ;
 
-auto Employee::Get_Access_to_data(std::string field) {
-    if(field == "Surname" || field == "Name" Surname : Name)
+auto Employee::Get_Access_to_PersonalData(std::string field) {
+
+    /* Function provides access to private fields
+     * via input of needed one.
+     * You should pass in the function argument a key-word.
+     * This function provides access to Surname, Name , Specialization fields*/
+
+    if (field == "Surname") return Surname;
+    else if(field == "Name") return Name;
+    else if (field == "Specialization") return Specialization;
+    else std::cout << "Incorrect data" << std::endl;
+
+}
+
+double Employee::Get_Access_to_numericDate(std::string field) {
+
+    /* Function is performs the functionality
+     * of the previous one
+     * but provides access to ID, Salary fields */
+
+     if (field == "ID") return ID;
+     else if (field =="Salary" ) return Salary;
+     else std::cout << "Incorrect data" << std::endl;
+}
+
+void Employee::Change_employee_info(std::string  field) {
+
+    /* Function changes all available class fields
+     * excluding ID field*/
+
+    if (field == "Surname") { std::cout << "Input correct Surname: "<< std::endl; std::cin >>this->Surname ; }
+
+    else if (field == "Name") {std::cout << "Input correct Name: "<< std::endl;std:: cin >> this->Name ;}
+
+    else if (field == "Specialization") {std::cout << "Input correct Specialization: "<< std::endl;std::cin >> this->Specialization; }
+
+    else if (field == "Specialization") {std::cout << "Input correct Salary: "<< std::endl; std::cin >> this->Salary; }
+
+    else {std::cout << "Incorrect data" << std::endl;}
+}
+
+Employee* Employee::Get_pointer() {
+    return this;
 
 }
 

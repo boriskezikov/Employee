@@ -7,11 +7,12 @@
 #define EMPLOYEE_CLASS_H
 
 class Employee: public Time {
+
 private:
     std::string Surname;
     std::string Name;
     std::string Specialization;
-    long double Salary;
+    double Salary;
     const int ID;
     static int employee_count;
 
@@ -22,11 +23,10 @@ public:
     Employee(std::string surname, std::string name, std::string  specialization,  int salary);
     Employee(std::string surname, int salary, int recruitment);
     void Print_info();
-    auto Get_Access_to_data(std::string field);
-
-
-
-
+    auto Get_Access_to_PersonalData(std::string field);
+    double Get_Access_to_numericDate(std::string field);
+    void Change_employee_info(std::string  field);
+    Employee* Get_pointer();
 
 protected:
 
